@@ -24,3 +24,15 @@
     ExpiresByType text/css                "access plus 1 years"
 </IfModule>
 
+<FilesMatch "\.(manifest|appcache|html?|xml|json)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-cache"
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.(rss|atom|jpg|jpeg|gif|png|ico|cur|gz|svg|svgz|mp4|ogg|ogv|webm|htc|css|js)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "public"
+    </IfModule>
+</FilesMatch>
+
